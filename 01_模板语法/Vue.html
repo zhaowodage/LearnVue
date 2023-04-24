@@ -15,18 +15,19 @@
         <h1>Hello,{{name}}</h1> 插值语法
         <hr/>
         <h1>指令语法</h1>
-        <a v-bind:href="school.url">点我去{{school.name}}Vue</a><br>
-        <a :href="school.url">点我去Vue,v-bind简写</a>
+        <a v-bind:href="school.url1">点我去{{school.name}}Vue</a><br>
+        <a :href="school.url2">点我去Vue v-bind</a>  <!--简写-->
 
     </div>
    
     <script>
         new Vue({   //Vue和容器一一对应
-            el:'#root',
+            el:'#root', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
             data:{ //data存放数据，供el指定容器使用
                 name:'World',
                 school:{        //多层级
-                    url:'https://vuejs.org/',
+                    url1:'https://vuejs.org/',
+                    url2:'https://cn.vuejs.org/guide/essentials/template-syntax.html#attribute-bindings',
                     name:'学习'
                 }
                 

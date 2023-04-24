@@ -11,22 +11,22 @@
     </div>
 
     <script type="text/javascript">
-        new Vue({
-           // el:'#root',       //el第一种
+       const v = new Vue({
+           // el:'#root',       //el第一种，创建Vue实例时指定
             /*
             data:{            //data第一种写法
                 name:'Vue'
             }
             */
-           data:function(){
+           data:function(){   //data第二种写法
             return {
-                name:'尽解发生'    //data第二种写法
+                name:'Vue'    
             }
            }
         })
-        setTimeout(() =>{    //el的第二种
-        v.$mount('#root')  //指定容器
-    },1000);
+       //el的第二种
+        v.$mount('#root')  //在创建Vue实例后指定指定容器
+    
     </script>
 </body>
 </html>
