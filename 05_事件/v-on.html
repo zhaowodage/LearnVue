@@ -11,7 +11,7 @@
     <div id="root">
         <P>Hello,{{tip}}!</P>
         <button v-on:click="showInfo1">提示1</button>
-        <button @click="showInfo2">提示二</button>
+        <button @click="showInfo2($event,20)">提示二</button>  <!--可以传参-->
 
     </div>
 
