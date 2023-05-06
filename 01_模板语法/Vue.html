@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>初始Vue</title>
+    <link rel="icon" href="/logo.ico">
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 <body>
@@ -20,7 +21,9 @@
 
     </div>
    
-    <script>
+    <script type="text/javascript">
+        Vue.config.productionTip = false //隐藏提示
+
         new Vue({   //Vue和容器一一对应
             el:'#root', //el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
             data:{ //data存放数据，供el指定容器使用
@@ -36,4 +39,4 @@
     </script>
     
 </body>
-</html>
+</html>   

@@ -14,18 +14,18 @@
        const v = new Vue({
            // el:'#root',       //el第一种，创建Vue实例时指定
             /*
-            data:{            //data第一种写法
+            data:{            //data第一种写法，对象式
                 name:'Vue'
             }
             */
-           data:function(){   //data第二种写法
+           data(){   //data第二种写法，函数式
             return {
                 name:'Vue'    
             }
            }
         })
        //el的第二种
-        v.$mount('#root')  //在创建Vue实例后指定指定容器
+        v.$mount('#root')  //在创建Vue实例后挂载到容器
     
     </script>
 </body>
