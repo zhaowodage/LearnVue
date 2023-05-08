@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+    <body>
+        <div id="root">
+			<h2>人员列表</h2>
+			<input type="text" placeholder="输入关键词" v-model="keyword" >
+			<ul>
+				<li v-for="(p,index) of filpersions" :key="index">
+					{{p.name}}-{{p.age}}
+				</li>
+			</ul>
+		</div>
+    </body>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        new Vue({
+            el:'#root',
+            data:{
+                persons:[
+                    {id:'001',name:'周冬雨'},
+                    {id:'002',name:'周杰伦'},
+                    {id:'003',name:'马冬梅'},
+					{id:'004',name:'马保国'}
+                ],
+				keyword:'',
+				//filpersions:[]
+            },
+			// watch:{
+			// 	keyword:{
+			// 		immediate:true,
+			// 		handler(val){
+			// 			this.filpersions = this.persons.filter((p)=>{
+			// 				console.log("调用")
+			// 				return p.name.indexOf(val) !== -1
+			// 			})
+			// 		}
+			// 	}
+			// }
+			computed:{
+				filpersions(){
+				  return this.persons.filter((p)=>{
+					return p.name.indexOf(this.keyword) !== -1
+					})
+				}
+			}
+        })
+    </script>
+
+</html>

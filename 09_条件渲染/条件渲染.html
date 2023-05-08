@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+
+        <h2 v-show="a">欢迎来到{{name}}</h2>
+
+        <button @click='b++'>点我b++</button>
+        
+        <h1 style="display:none">多组使用v-else-if 提高效率</h1>
+        <h2 v-if="b===1">学习JavaScript</h2>
+        <h2 v-else-if="b===2">学习Vue</h2>  
+        <h2 v-else-if="b===3">学习React</h2>
+        <h2 v-else>学习</h2>             
+    
+
+        <template v-if="b===1">
+            <h2>你好</h2>
+            <h2>北京</h2>
+            <h2>天安门</h2>
+        </template>
+
+    </div>
+</body>
+    <script type='text/javascript'>
+        
+
+       vm =  new Vue({
+        el:'#root',
+        data:{
+            name:'尚硅谷',
+            a:'true',
+            b:'0'
+        }
+        })
+    </script>
+
+</html>

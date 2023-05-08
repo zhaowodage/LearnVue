@@ -358,7 +358,7 @@
       /**
        * Show production mode tip message on boot?
        */
-      productionTip: true,
+      productionTip: false,
       /**
        * Whether to enable devtools
        */
