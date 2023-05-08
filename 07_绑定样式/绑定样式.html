@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>绑定样式</title>
+    
+    <style>
+        .basic{
+            background-color: aliceblue;
+            width: max-content;
+        }
+        .happy{
+            background-color: skyblue;
+            height: 50px;
+         
+        }    
+        .unhappy{
+            background-color: green;
+            height: 50px,
+        }  
+        .normal{
+            background-color: blue;
+            height: 50px,
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div>
+    </div>
+</body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        new Vue({
+            el:'#root',
+            data:{
+                name:'dadfa',
+                mood:normal
+            },
+            methods:{
+                changdeMood(){
+                    this.mood = 'happy'
+                }
+            }
+
+        })
+    </script>
+</html>

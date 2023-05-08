@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <script type="text/javascript" src="../js/vue.js"></script>
+    <title>Document</title>
 </head>
 <body>
-    <!--V,视图 模板代码-->
-    <div id="CV">
-        <p>Vue是{{JavaScript}}的框架</p>
-        <p>SpringBoot是{{Java}}的框架</p>
-        <h2>测试：{{$options}}</h2>
+    <div id="root">
+    <input type="text" placeholder="回车提示输入" @keyup.enter="tip"> <!--回车键盘弹起-->
     </div>
+</body>
 
 <script>
     Vue.config.productionTip = false
-    //VM ,Vue实例
-    new Vue({
-    el:"#CV",
-    //M，模型，data中数据
-    data:{
-        JavaScript:'JavaScript',
-        Java:'Java'
-    }
-})
-</script>
 
-</body>
+    new Vue({
+        el:'#root',
+        methods:{
+            tip(e){
+                
+                console.log(e.target.value)
+            }
+        }
+    })
+</script>
 </html>

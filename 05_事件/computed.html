@@ -11,7 +11,7 @@
     <div id="root">
         姓：<input type="text" v-model="firstName"><br><br>
         名：<input type="text" v-model="lastName"><br><br>
-        姓名：<span>{{fullName}}</span>
+        姓名：<span>{{fullName}}</span><br><br>
         除数：<input type="text" v-model="firstNum"><br><br>
         被除数：<input type="text" v-model="lastNum"><br><br>
         商：<span>{{result}}</span>
@@ -34,7 +34,7 @@
                         return this.firstName + '-' + this.lastName
                     },
                     set(value){
-						const arr = value.split('-')
+						const arr = value.split('-')  //通过‘-’ 进行切片
 						this.firstName = arr[0]
 						this.lastName = arr[1]
                     }
@@ -46,6 +46,8 @@
             }
             }
         })
+
+        
     </script>
 </body>
 </html>
