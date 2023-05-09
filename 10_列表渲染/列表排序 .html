@@ -9,9 +9,12 @@
         <div id="root">
 			<h2>人员列表</h2>
 			<input type="text" placeholder="输入关键词" v-model="keyword" >
+			<button @click="sortType = 2">年龄升序</button>
+			<button @click="sortType = 1">年龄降序</button>
+			<button @click="sortType = 0">原顺序</button>
 			<ul>
 				<li v-for="(p,index) of filpersions" :key="index">   <!--从filpersions取元素-->
-					{{p.name}}-{{p.age}}
+					{{p.name}}-{{p.age}} 
 				</li>
 			</ul>
 		</div>
@@ -21,32 +24,28 @@
         
         new Vue({
             el:'#root',
+			
             data:{
-                persons:[
-                    {id:'001',name:'周冬雨'},
-                    {id:'002',name:'周杰伦'},
-                    {id:'003',name:'马冬梅'},
-					{id:'004',name:'马保国'}
-                ],
+				sortType:0,
 				keyword:'',
-				//filpersions:[]
+                persons:[
+                    {id:'001',name:'周冬雨',age:'22'},
+                    {id:'002',name:'周杰伦',age:'21'},
+                    {id:'003',name:'马冬梅',age:'19'},
+					{id:'004',name:'马保国',age:'18'}
+                ],				
             },
-			// watch:{       //监视属性
-			// 	keyword:{     //监视对象
-			// 		immediate:true,     //立即执行一次handler
-			// 		handler(val){      // handler()其值是一个回调函数, 即监听到变化时应该执行的函数
-			// 			this.filpersions = this.persons.filter((p)=>{
-			// 				console.log("调用")
-			// 				return p.name.indexOf(val) !== -1
-			// 			})
-			// 		}
-			// 	}
-			// }
 			computed:{        //计算属性
 				filpersions(){		
-				  return this.persons.filter((p)=>{     //filter方法创建给定数组一部分的浅拷贝，其包含通过所提供函数实现的测试的所有元素。
+				  const arr = this.persons.filter((p)=>{     //filter方法创建给定数组一部分的浅拷贝，其包含通过所提供函数实现的测试的所有元素。
 					return p.name.indexOf(this.keyword) !== -1   //测试函数indexOf方法返回在数组中可以找到给定元素的第一个索引，如果不存在，则返回 -1。
 					})
+					if(this.sortType){
+					arr.sort((p1,p2)=>{
+						return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age 
+					})
+				}
+				return arr
 				}
 			}
         })
