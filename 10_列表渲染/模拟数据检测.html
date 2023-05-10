@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+
+
+    </div>
+
+
+
+
+
+    <script type='text/javascript'>
+      let data = {
+        name:'张三',
+        age:23
+      }
+      
+      //创建一个监视方法
+      function Observer(obj){
+        //汇总对象所有属性形成一个数组
+        const keys = Object.keys(obj)  //方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致。
+        //遍历对象属性
+        keys.forEach((k) => {
+            Object.defineProperty(this,k,{      //直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象
+
+            get(){
+                return obj[k]
+            },
+            set(val){
+                obj[k] = val
+            }
+            })
+        }); 
+      }
+      //创建一个监视的实例对象,用于监视data中属性变化
+      const obs = new Observer(data)
+
+
+    //  错误回调,造成死循环
+    //   Object.defineProperty(data,'name',{
+    //     get(){
+    //         return data.name
+    //     },
+    //     set(val){
+    //         data.name = val
+    //     }
+    //   })
+    </script>
+</body>
+</html>
