@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>v-text指令</title>
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<div v-text = 'name'>你好，{{name}}</div>  	<!--直接替换节点文本-->
+			<div v-text="name"></div>   
+			<div v-text="str"></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		Vue.config.productionTip = false 
+		
+		new Vue({
+			el:'#root',
+			data:{
+				name:'JOJO',
+				str:'<h3>你好啊！</h3>'
+			}
+		})
+	</script>
+</html>
